@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mermaid js</title>
+  <!-- cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Sans-Serif;
+      color: #00ffad;
+      background-color: #001122;
+    }
+
+    .content {
+      max-width: 1000px;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 30px 0;
+    }
+
+    .title span {
+      color: #ffc800;
+    }
+
+    .title .second {
+      color: #ff00fb;
+    }
+
+    .title .tertiary {
+      color: #0095ff;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="content">
+    <div class="title">DIAGRAM <span>[Flow Chart]</span> ::</div>
+    <div class="mermaid">
+      %%{init: {
+      'theme': 'base',
+      'themeVariables': {
+      'primaryColor': '#5e5e5e',
+      'primaryBorderColor':'#00ffad',
+      'primaryTextColor':'#00ffad',
+      'fontSize':'14px',
+      'lineColor':'#ffc800'
+      }}}%%
+      graph TD
+      A[Get website Dev plan] --> B(Analysis client needs) --> |Calculate Cost fa:fa-spinner| C(To do Dev)
+      C -.-> D{Framework Choose}
+      D -.-> |fa:fa-angle-left If use MVC fa:fa-angle-right| E(fa:fa-code PHP + express)
+      D -.-> |fa:fa-angle-left If use SPA fa:fa-angle-right| F(fa:fa-code React)
+      D -.-> |fa:fa-angle-left If use SSR fa:fa-angle-right| G(fa:fa-code Next.js)
+      E -.-> H(division of work)
+      F -.-> H(division of work)
+      G -.-> H(division of work)
+      H --> I[Until dev completed]
+    </div>
+    <div class="title">DIAGRAM <span class="second">[Pie Chart]</span> ::</div>
+    <div class="mermaid">
+      %%{init: {
+      'theme': 'base',
+      'themeVariables': {
+      'textColor':'#fff',
+      'fontSize':'14px',
+      'primaryColor':'#ff00fb'
+      }}}%%
+      pie title about team member
+      "frontend" : 2
+      "backend" : 2
+      "project manager" : 2
+      "qatest" : 1
+      "Administration ": 1
+    </div>
+    <div class="title">DIAGRAM <span class="tertiary">[Gntt Diagram]</span> ::</div>
+    <div class="mermaid">
+      %%{init: {
+      'theme': 'base',
+      'themeVariables': {
+      'textColor':'#fff',
+      'fontSize':'14px',
+      'primaryColor':'#0095ff'
+      }}}%%
+      gantt
+      title project progress
+      dateFormat YYYY-MM-DD
+      section project A
+      dev time :active, p1, 2022-08-01, 7d
+      qatest :crit, p2, after p1, 3d
+      done :p3,after p2, 2d
+      section project B
+      dev time :active, p1, 2022-08-05, 5d
+      qatest :crit, p2, after p1, 3d
+      done :p3,after p2, 2d
+    </div>
+  </div>
+</body>
+
+</html>
